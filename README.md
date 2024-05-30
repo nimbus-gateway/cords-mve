@@ -1,7 +1,7 @@
-# TRUEConnector-MVDS (CA-DAPS-TC-MDB)
+# CORDS Minimum Viable Ecosystem
 
-![MVDS](pictures/MVDS.png "MVDS")
-
+![MVE](pictures/cords_mve.png "MVE")
+<!-- 
 ## Index
 - [Execution modes](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#execution-modes)
 - [Hardware Requirements](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#hardware-requirements)
@@ -544,4 +544,4 @@ To stop the TRUEConnector-MVDS just use the following command:
 
 ```
 docker-compose down
-```
+``` -->
