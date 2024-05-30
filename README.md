@@ -1,20 +1,18 @@
 # CORDS Minimum Viable Ecosystem
 
 ![MVE](pictures/cords_mve.png "MVE")
-<!-- 
+
 ## Index
-- [Execution modes](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#execution-modes)
-- [Hardware Requirements](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#hardware-requirements)
-- [Certificate Authority](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#certificate-authority)
+- [Hardware Requirements](https://github.com/nimbus-gateway/cords-mve/blob/master/README.md#hardware-requirements)
+- [Runing Precondifured MVE](https://github.com/nimbus-gateway/cords-mve/blob/master/README.md#running-preconfigured-mve)
+<!-- - [Certificate Authority](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#certificate-authority)
 - [DAPS](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#daps)
 - [TRUE Connector](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#true-connector)
 - [Metadata Broker](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#metadata-broker)
-- [Stop and delete TRUEConnector-MVDS set up](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#stopping-the-TRUEConnector-MVDS)
+- [Stop and delete TRUEConnector-MVDS set up](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#stopping-the-TRUEConnector-MVDS) -->
 
-The installation and configuration process is explained below for each of the components. To further support this document, the links to the official installation guides will be linked.
+The installation and configuration process is explained below for each of the components. 
 
-# Execution modes
-You may either run the preconfigured TRUEConnector-MVDS offered in this repository or follow the instructions for the manual setup below to set it up on your own and possibly adjust it to your needs.
 
 # Hardware Requirements
 
@@ -28,8 +26,8 @@ It is recommended to use 64bit quad core processor to provide enough processing 
 
 Take into account that if more components are included at the TRUEConnector-MVDS or a huge amount of data is uploaded it is possible to run out of disk free space. In this cases it is recommended to provide more free disk storage.
 
-# Preconfigured MVDS
-The TRUEConnector-MVDS is already preconfigured out-of-the-box for testing purposes and you can start it by executing in the root folder where the docker-compose.yml is located:
+# Running Preconfigured MVE
+The CORDS MVE is already preconfigured out-of-the-box for testing purposes and you can start it by executing in the root folder where the docker-compose.yml is located:
 
 ```
 docker-compose up -d
@@ -41,6 +39,7 @@ To see the log lines:
 docker-compose logs -f
 ```
 
+<!-- 
 Follow this set up of the TRUEConnector-MVDS to configure it to your needs.
 
 # CERTIFICATE AUTHORITY
