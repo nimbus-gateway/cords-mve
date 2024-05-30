@@ -1,0 +1,404 @@
+services:
+
+#Omejdn
+  omejdn:
+    image: nginx:1.21.6
+    container_name: omejdn
+    ports:
+      - 80:80
+      - 443:443      
+    environment:
+      - OMEJDN_DOMAIN=${OMEJDN_DOMAIN}
+      - OMEJDN_PATH=${OMEJDN_PATH}
+      - UI_PATH=${UI_PATH}
+    volumes:
+      - ./DAPS/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./DAPS/keys/TLS/daps.cert:/etc/nginx/daps.cert
+      - ./DAPS/keys/TLS/daps.key:/etc/nginx/daps.key
+    networks:
+      - local
+
+  omejdn-server:
+    image: ghcr.io/fraunhofer-aisec/omejdn-server:${OMEJDN_VERSION}
+    container_name: omejdn-server
+    environment:
+      - OMEJDN_ISSUER=${OMEJDN_ISSUER}
+      - OMEJDN_FRONT_URL=${OMEJDN_ISSUER}
+      - OMEJDN_OPENID=true
+      - OMEJDN_ENVIRONMENT=${OMEJDN_ENVIRONMENT}
+      - OMEJDN_ACCEPT_AUDIENCE=idsc:IDS_CONNECTORS_ALL
+      - OMEJDN_DEFAULT_AUDIENCE=idsc:IDS_CONNECTORS_ALL
+      - OMEJDN_ADMIN=${ADMIN_USERNAME}:${ADMIN_PASSWORD}
+    volumes:
+      - ./DAPS/config:/opt/config
+      - ./DAPS/keys:/opt/keys
+    networks:
+      - local
+
+  omejdn-ui:
+    image: ghcr.io/fraunhofer-aisec/omejdn-ui:${UI_VERSION}
+    container_name: omejdn-ui
+    environment:
+      - OIDC_ISSUER=${OMEJDN_ISSUER}
+      - API_URL=${OMEJDN_ISSUER}/api/v1
+      - CLIENT_ID=adminUI
+    networks:
+      - local
+
+#Metadata Broker
+  broker-reverseproxy:
+    image: registry.gitlab.cc-asp.fraunhofer.de/eis-ids/broker-open/reverseproxy
+    container_name: broker-reverseproxy
+    volumes:
+      - ./MetadataBroker/server.crt:/etc/cert/server.crt
+      - ./MetadataBroker/server.key:/etc/cert/server.key
+    ports:
+      - "444:443" # IDS-HTTP API
+      - "81:80"
+    networks:
+      - local
+
+  broker-core:
+    image: idstestbed/broker-core:5.0.3
+    container_name: broker-core
+    volumes:
+      - ./MetadataBroker/isstbroker-keystore.jks:/etc/cert/isstbroker-keystore.jks
+    environment:
+      - SPARQL_ENDPOINT=http://broker-fuseki:3030/connectorData
+      - ELASTICSEARCH_HOSTNAME=broker-elasticsearch
+      - SHACL_VALIDATION=true
+      - DAPS_VALIDATE_INCOMING=true
+      - COMPONENT_URI=https://localhost/
+      - COMPONENT_CATALOGURI=https://localhost/connectors/
+      - DAPS_URL=https://omejdn/auth/token
+    expose:
+      - "8080"
+    networks:
+      - local
+
+  broker-fuseki:
+    image: registry.gitlab.cc-asp.fraunhofer.de/eis-ids/broker-open/fuseki
+    container_name: broker-fuseki
+    volumes:
+      - broker-fuseki:/fuseki
+    ports:
+      - 3030:3030
+    expose:
+      - "3030"
+    networks:
+      - local
+
+#TRUE Connector
+#Provider
+  ecc-provider:
+    image: rdlabengpa/ids_execution_core_container:v1.14.2
+    depends_on:
+        - omejdn
+        - omejdn-server
+        - omejdn-ui
+        - broker-reverseproxy
+        - broker-core
+        - broker-fuseki
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+    logging:
+      options:
+        max-size: "200M"
+    networks:
+      - tc-provider
+      - tc-consumer
+      - local
+    container_name: ecc-provider
+    ports:
+      - "${PROVIDER_PORT}:8449"  #Port for exposing HTTP endpoints
+      - "8889:8889"                               #Exposed port for receiving data from another connector (REST)
+      - "8087:8086"                               #Exposed port for receiving data from another connector (WS)
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+      - DATA_APP_ENDPOINT=${PROVIDER_DATA_APP_ENDPOINT}      #Data APP enpoint for consuming received data
+      - MULTIPART_EDGE=${PROVIDER_MULTIPART_EDGE}                      #Data APP endpoint multipart/mixed content type
+      - MULTIPART_ECC=${MULTIPART_ECC}
+      - IDSCP2=${IDSCP2}
+      - WS_EDGE=${PROVIDER_WS_EDGE}
+      - WS_ECC=${WS_ECC}
+      - UC_DATAAPP_URI=https://uc-dataapp-provider:8080/platoontec/PlatoonDataUsage/1.0/
+      - BROKER_URL=${BROKER_URL}
+      - CACHE_TOKEN=${CACHE_TOKEN}
+      - FETCH_TOKEN_ON_STARTUP=${FETCH_TOKEN_ON_STARTUP}
+      - KEYSTORE_NAME=${PROVIDER_KEYSTORE_NAME}
+      - KEYSTORE_PASSWORD=${PROVIDER_KEYSTORE_PASSWORD}
+      - ALIAS=${PROVIDER_ALIAS}
+      - TRUSTORE_NAME=${PROVIDER_TRUSTORE_NAME}
+      - TRUSTORE_PASSWORD=${PROVIDER_TRUSTORE_PASSWORD}
+      - DAPS_KEYSTORE_NAME=${PROVIDER_DAPS_KEYSTORE_NAME}
+      - DAPS_KEYSTORE_PASSWORD=${PROVIDER_DAPS_KEYSTORE_PASSWORD}
+      - DAPS_KEYSTORE_ALIAS=${PROVIDER_DAPS_KEYSTORE_ALIAS}
+      - TZ=Europe/Rome
+    volumes:
+      - ./TRUEConnector/ecc_resources_provider:/config
+      - ./TRUEConnector/cert/provider:/cert
+      - ecc_provider_data:/home/nobody/data/
+    extra_hosts:
+      - "ecc-provider:172.17.0.1"
+
+  uc-dataapp-provider:
+    image: rdlabengpa/ids_uc_data_app_platoon:v1.7.4
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    logging:
+      options:
+        max-size: "100M"
+    networks:
+      - tc-provider
+    container_name: uc-dataapp-provider
+    environment:
+      - KEYSTORE_NAME=${PROVIDER_KEYSTORE_NAME}
+      - KEYSTORE_PASSWORD=${PROVIDER_KEYSTORE_PASSWORD}
+      - ALIAS=${PROVIDER_ALIAS}
+      - TZ=Europe/Rome
+    expose:
+      - "8080"
+    volumes:
+      - ./TRUEConnector/uc-dataapp_resources_provider:/etc
+      - uc_provider_data:/data
+      - ./TRUEConnector/cert/provider:/cert
+
+  uc-dataapp-pip-provider:
+    image: rdlabengpa/ids_uc_data_app_platoon_pip:v1.0.0
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    logging:
+      options:
+        max-size: "100M"
+    networks:
+      - tc-provider
+    container_name: uc-dataapp-pip-provider
+    environment:
+      - TZ=Europe/Rome
+    expose:
+      - "8085"
+    volumes:
+      - ./TRUEConnector/uc-dataapp-pip_resources_provider:/etc
+
+  be-dataapp-provider:
+    image: cords_provider_app
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    logging:
+      options:
+        max-size: "100M"
+    networks:
+      - tc-provider
+    container_name: be-dataapp-provider
+    ports:
+      - "8183:8183"
+      - "9000:9000"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+      - DATA_APP_MULTIPART=${PROVIDER_MULTIPART_EDGE}
+      - KEYSTORE_NAME=${PROVIDER_KEYSTORE_NAME}
+      - KEYSTORE_PASSWORD=${PROVIDER_KEYSTORE_PASSWORD}
+      - ALIAS=${PROVIDER_ALIAS}
+      - ECC_HOSTNAME=ecc-provider
+      - ECC_PORT=8887
+      - TZ=Europe/Rome
+      - ISSUER_CONNECTOR_URI=${PROVIDER_ISSUER_CONNECTOR_URI}
+      - EXTRACT_PAYLOAD_FROM_RESPONSE=${EXTRACT_PAYLOAD_FROM_RESPONSE}
+      - FIREWALL=false
+    volumes:
+      - ./TRUEConnector/be-dataapp_resources_provider:/config
+      - be_dataapp_provider_data:/home/nobody/data/
+      - ./TRUEConnector/cert/provider:/cert
+      - /vagrant/true-connector-mvds/TRUEConnector/be-dataapp_data_provider/mlVocab.json:/home/nobody/data1/mlVocab.json
+
+
+#Consumer
+  ecc-consumer:
+    image: rdlabengpa/ids_execution_core_container:v1.14.2
+    depends_on:
+        - omejdn
+        - omejdn-server
+        - omejdn-ui
+        - broker-reverseproxy
+        - broker-core
+        - broker-fuseki
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+    logging:
+      options:
+        max-size: "200M"
+    networks:
+      - tc-consumer
+      - tc-provider
+      - local
+    container_name: ecc-consumer
+    ports:
+      - "${CONSUMER_PORT}:8449"  #Port for exposing HTTP endpoints
+      - "8890:8889"                               #Exposed port for receiving data from another connector (REST)
+      - "8088:8086"                               #Exposed port for receiving data from another connector (WS)
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+      - DATA_APP_ENDPOINT=${CONSUMER_DATA_APP_ENDPOINT}    #Data APP enpoint for consuming received data
+      - MULTIPART_EDGE=${CONSUMER_MULTIPART_EDGE}          #Data APP endpoint multipart/mixed content type
+      - MULTIPART_ECC=${MULTIPART_ECC}
+      - IDSCP2=${IDSCP2}
+      - WS_EDGE=${CONSUMER_WS_EDGE}
+      - WS_ECC=${WS_ECC}
+      - UC_DATAAPP_URI=https://uc-dataapp-consumer:8080/platoontec/PlatoonDataUsage/1.0/
+      - BROKER_URL=${BROKER_URL}
+      - CACHE_TOKEN=${CACHE_TOKEN}
+      - FETCH_TOKEN_ON_STARTUP=${FETCH_TOKEN_ON_STARTUP}
+      - KEYSTORE_NAME=${CONSUMER_KEYSTORE_NAME}
+      - KEYSTORE_PASSWORD=${CONSUMER_KEYSTORE_PASSWORD}
+      - ALIAS=${CONSUMER_ALIAS}
+      - TRUSTORE_NAME=${CONSUMER_TRUSTORE_NAME}
+      - TRUSTORE_PASSWORD=${CONSUMER_TRUSTORE_PASSWORD}
+      - DAPS_KEYSTORE_NAME=${CONSUMER_DAPS_KEYSTORE_NAME}
+      - DAPS_KEYSTORE_PASSWORD=${CONSUMER_DAPS_KEYSTORE_PASSWORD}
+      - DAPS_KEYSTORE_ALIAS=${CONSUMER_DAPS_KEYSTORE_ALIAS}
+      - TZ=Europe/Rome
+    volumes:
+      - ./TRUEConnector/ecc_resources_consumer:/config
+      - ./TRUEConnector/cert/consumer:/cert
+      - ecc_consumer_data:/home/nobody/data/
+    extra_hosts:
+      - "ecc-consumer:172.17.0.1"
+
+  uc-dataapp-consumer:
+    image: rdlabengpa/ids_uc_data_app_platoon:v1.7.4
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    logging:
+      options:
+        max-size: "100M"
+    networks:
+      - tc-consumer
+    container_name: uc-dataapp-consumer
+    environment:
+      - KEYSTORE_NAME=${CONSUMER_KEYSTORE_NAME}
+      - KEYSTORE_PASSWORD=${CONSUMER_KEYSTORE_PASSWORD}
+      - ALIAS=${CONSUMER_ALIAS}
+      - TZ=Europe/Rome
+    expose:
+      - "8080"
+    volumes:
+      - ./TRUEConnector/uc-dataapp_resources_consumer:/etc
+      - uc_consumer_data:/data
+      - ./TRUEConnector/cert/consumer:/cert
+
+  uc-dataapp-pip-consumer:
+    image: rdlabengpa/ids_uc_data_app_platoon_pip:v1.0.0
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    logging:
+      options:
+        max-size: "100M"
+    networks:
+      - tc-consumer
+    container_name: uc-dataapp-pip-consumer
+    environment:
+      - TZ=Europe/Rome
+    expose:
+      - "8085"
+    volumes:
+      - ./TRUEConnector/uc-dataapp-pip_resources_consumer:/etc
+
+  be-dataapp-consumer:
+    image: rdlabengpa/ids_be_data_app:v0.3.1
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+    logging:
+      options:
+        max-size: "100M"
+    networks:
+      - tc-consumer
+    container_name: be-dataapp-consumer
+    ports:
+      - "8184:8183"
+      - "9001:9000"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+      - DATA_APP_MULTIPART=${CONSUMER_MULTIPART_EDGE}
+      - KEYSTORE_NAME=${CONSUMER_KEYSTORE_NAME}
+      - KEYSTORE_PASSWORD=${CONSUMER_KEYSTORE_PASSWORD}
+      - ALIAS=${CONSUMER_ALIAS}
+      - ECC_HOSTNAME=ecc-consumer
+      - EXTRACT_PAYLOAD_FROM_RESPONSE=${EXTRACT_PAYLOAD_FROM_RESPONSE}
+      - ECC_PORT=8887
+      - TZ=Europe/Rome
+      - ISSUER_CONNECTOR_URI=${CONSUMER_ISSUER_CONNECTOR_URI}
+    volumes:
+      - ./TRUEConnector/be-dataapp_resources_consumer:/config
+      - ./TRUEConnector/cert/consumer:/cert
+      - be_dataapp_consumer_data:/home/nobody/data
+
+  #CORDS specific services
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest  # Use the official MLflow Docker image
+    container_name: cords-mlflow
+    ports:
+      - 4000:4000  # Expose MLflow UI on port 5000
+    volumes:
+      - ./mlruns:/mlruns  # Mount local directory to store MLflow artifacts and metadatas
+    environment:
+      - MLFLOW_TRACKING_URI=http://localhost:4000  # Set the tracking URI to the running container
+      - MLFLOW_S3_ENDPOINT_URL=  # Optional: If using S3 storage, provide the endpoint URL
+      - AWS_ACCESS_KEY_ID=  # Optional: AWS access key (if using S3)
+      - AWS_SECRET_ACCESS_KEY=  # Optional: AWS secret key (if using S3)
+
+    command: mlflow server --host="0.0.0.0" --port="4000"
+    networks:
+      - local
+
+  cords-resource-manager:
+    image: tharindupr/cords-docker-images:resource_manager
+    container_name: cords-resource-manager
+    ports:
+      - "5000:5000"
+    networks:
+      - tc-provider
+      - tc-consumer
+      - local
+
+      
+networks:
+  tc-consumer: {}
+  tc-provider: {}
+  local:
+    driver: bridge
+
+volumes:
+  broker-fuseki: {}
+  ecc_provider_data: {}
+  uc_provider_data: {}
+  ecc_consumer_data: {}
+  uc_consumer_data: {}
+  be_dataapp_consumer_data: {}
+  be_dataapp_provider_data:
+    external: true
+
+

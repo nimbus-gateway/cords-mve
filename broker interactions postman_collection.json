@@ -1,0 +1,386 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Plugfest May 2022 copy",
+		"_postman_id": "d9e05454-ced5-8051-91ef-7d2db80f3948",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Selfdescription",
+			"request": {
+				"url": "https://localhost/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Date",
+						"value": "Tue, 11 Feb 2020 08:12:31 GMT",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "MessageType",
+						"value": "ids:SelfDescriptionRequestMessage",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "IssuerConnector",
+						"value": "http://localhost/client/",
+						"type": "text"
+					},
+					{
+						"key": "SecurityToken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRlZmF1bHQifQ.eyJzZWN1cml0eV9sZXZlbCI6Nywic2NvcGVzIjpbImlkc19jb25uZWN0b3IiLCJzZWN1cml0eV9sZXZlbCJdLCJhdWQiOiJJRFNfQ29ubmVjdG9yIiwiaXNzIjoiaHR0cHM6Ly9kYXBzLmFpc2VjLmZyYXVuaG9mZXIuZGUiLCJzdWIiOiI3MTgxMGZmZi00MTM5LTQ5ZDAtYjBhNC03ZDAyYjliNTRkMTUiLCJuYmYiOjE1NTk3MzAyNTAsImV4cCI6MTU1OTczMzg1MH0.oS5kZtFhqn1jUSBtmCKSU0MzcVAxhfW7BCa4oIo_aQi6Qcc-FN-bBhmx1fXgD57HqXaV7r0kxJrDsoDGo4AE1qG384HhSzFJOqA6Nws7n0OorkjsOIFMM4ulPYNKy2srUAb9EeDaAWb6uGA5bbk5E1yKM73ub_U8OF1W4OmgUCOFizxOPY8HEnklsk6eiqrAFFCebp-BtuaVp1p7U9SotpcFxoq235OwRWz2aFiAr9v53VLJzlBYPGsuqdBZ1lpOUQXCMbDfqWXfyNSa0uDPeHKP_Xj1tUug0g-WXjGsZIMzXHPvAM-syw1SweYq_c4ulpZyABSYPSwEfufdtaO_Iw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Selfdescription",
+			"request": {
+				"url": "https://localhost/infrastructure",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Date",
+						"value": "Tue, 11 Feb 2020 08:12:31 GMT",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "MessageType",
+						"value": "ids:SelfDescriptionRequestMessage",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "multipart/mixed",
+						"type": "text"
+					},
+					{
+						"key": "IssuerConnector",
+						"value": "http://localhost/client/",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "SecurityToken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRlZmF1bHQifQ.eyJzZWN1cml0eV9sZXZlbCI6Nywic2NvcGVzIjpbImlkc19jb25uZWN0b3IiLCJzZWN1cml0eV9sZXZlbCJdLCJhdWQiOiJJRFNfQ29ubmVjdG9yIiwiaXNzIjoiaHR0cHM6Ly9kYXBzLmFpc2VjLmZyYXVuaG9mZXIuZGUiLCJzdWIiOiI3MTgxMGZmZi00MTM5LTQ5ZDAtYjBhNC03ZDAyYjliNTRkMTUiLCJuYmYiOjE1NTk3MzAyNTAsImV4cCI6MTU1OTczMzg1MH0.oS5kZtFhqn1jUSBtmCKSU0MzcVAxhfW7BCa4oIo_aQi6Qcc-FN-bBhmx1fXgD57HqXaV7r0kxJrDsoDGo4AE1qG384HhSzFJOqA6Nws7n0OorkjsOIFMM4ulPYNKy2srUAb9EeDaAWb6uGA5bbk5E1yKM73ub_U8OF1W4OmgUCOFizxOPY8HEnklsk6eiqrAFFCebp-BtuaVp1p7U9SotpcFxoq235OwRWz2aFiAr9v53VLJzlBYPGsuqdBZ1lpOUQXCMbDfqWXfyNSa0uDPeHKP_Xj1tUug0g-WXjGsZIMzXHPvAM-syw1SweYq_c4ulpZyABSYPSwEfufdtaO_Iw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\",\n    \"xsd\":\"http://www.w3.org/2001/XMLSchema#\"\n  },\n  \"@type\" : \"ids:DescriptionRequestMessage\",\n  \"@id\" : \"http://industrialdataspace.org/1a421b8c-3407-44a8-aeb9-253f145c869a\",\n  \"ids:issued\" : {\"@value\":\"2021-05-25T15:35:34.589Z\",\"@type\":\"xsd:dateTimeStamp\"},\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:senderAgent\":{\"@id\":\"https://localhost/agent\"},\n  \"ids:issuerConnector\":{\"@id\":\"https://localhost/59a68243\"},\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/2bd53efc-5995-d75590476820\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"https://w3id.org/idsa/code/JWT\"\n    },\n    \"ids:tokenValue\" : \"...\"\n  }\n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Connector Registration",
+			"request": {
+				"url": "https://localhost/infrastructure",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ConnectorUpdateMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/connectorUpdateMessage/327b5596-8259-46c1-b3ec-2f7f1f6a1b1e\",\n  \"ids:affectedConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  },\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"https://test.connector.de\"\n  },\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/a73edf66-d5a7-4114-b9ae-577793821384\",\n    \"ids:tokenValue\" : \"...\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"https://w3id.org/idsa/code/JWT\"\n    }\n  },\n  \"ids:modelVersion\" : \"4.1.0\",\n  \"ids:issued\" : {\n    \"@value\" : \"2022-04-13T13:43:08.826Z\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  }\n}",
+							"type": "text"
+						},
+						{
+							"key": "payload",
+							"value": "{\n    \"@context\": {\n        \"ids\": \"https://w3id.org/idsa/core/\",\n        \"idsc\": \"https://w3id.org/idsa/code/\",        \n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\"\n    },\n    \"@id\": \"https://test.connector.de/myConnector\",\n    \"@type\": \"ids:BaseConnector\",\n    \"ids:curator\": {\n        \"@id\": \"https://test.connector.de/agent/\"\n    },\n    \"ids:description\": [\n        {\n            \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n            \"@value\": \"This is a test Connector for the Plugfest, May 2022\"\n        }\n    ],\n    \"ids:hasDefaultEndpoint\": {\n        \"@id\": \"https://test.connector.de/data/\",\n        \"@type\": \"ids:ConnectorEndpoint\",\n        \"ids:accessURL\": {\n            \"@id\": \"https://test.connector.de/infrastructure\"\n        },\n        \"ids:endpointDocumentation\": [\n            {\n                \"@id\": \"https://app.swaggerhub.com/apis/idsa/IDS-Broker/1.3.1#/Multipart+Interactions/post_infrastructure\"\n            }\n        ],\n        \"ids:endpointInformation\": [\n            {\n                \"@language\": \"en\",\n                \"@value\": \"This endpoint provides IDS Connector information and IDS Resources.\"\n            }\n        ],\n        \"ids:path\": \"/infrastructure\",\n        \"ids:sovereign\": {\n            \"@id\": \"https://test.connector.de/infrastructure\"\n        }\n    },\n    \"ids:inboundModelVersion\": [\n        \"4.0.0\"\n    ],\n    \"ids:maintainer\": {\n        \"@id\": \"https://test.connector.de/agent/\"\n    },    \n    \"ids:outboundModelVersion\": \"4.0.0\",\n    \"ids:resourceCatalog\": {\n        \"@id\": \"https://w3id.org/idsa/autogen/catalog/fa535e30-8cb0-4ede-b5a9-def764d69357\",\n        \"@type\": \"ids:ResourceCatalog\",\n        \"ids:offeredResource\": [\n            {\n                \"@id\": \"https://test.connector.de/myFirstResource\",\n                \"@type\": \"ids:Resource\",\n                \"ids:author\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/person/8b51a76a-7316-4285-b96a-722bf7a944f8\",\n                        \"@type\": \"ids:Person\",\n                        \"ids:emailAddress\": [\"info@example.org\"],\n                        \"ids:familyName\": \"Schmitz\",\n                        \"ids:givenName\": \"Max\",\n                        \"ids:homepage\": \"http://example.org\",\n                        \"ids:phoneNumber\": [\"012345678891\"]\n                    }\n                ],\n                \"ids:contentStandard\": {\n                    \"@id\": \"http://contentstandard.org\"\n                },\n                \"ids:contentType\": {\n                    \"@id\": \"idsc:INTERFACE_DEFINITION\"\n                },\n                \"ids:contractOffer\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/contractOffer/b6d78c1f-bccb-4615-9a67-bf0ab729428a\",\n                    \"@type\": \"ids:ContractOffer\",\n                    \"ids:permission\": [\n                        {\n                            \"@id\": \"https://w3id.org/idsa/autogen/permission/6949b9d2-11b7-40f0-b935-d5964a0f7a3e\",\n                            \"@type\": \"ids:Permission\",\n                            \"ids:action\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/code/USE\",\n                                    \"@type\": \"ids:Action\"\n                                }\n                            ],\n                            \"ids:assignee\": [\n                                {\n                                    \"@id\": \"http://example.org/assignee\"\n                                }\n                            ],\n                            \"ids:constraint\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/autogen/constraint/4be87aa3-e203-4ac8-b4d6-ea006814d494\",\n                                    \"@type\": \"ids:Constraint\",\n                                    \"ids:leftOperand\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/SECURITY_LEVEL\"\n                                    },\n                                    \"ids:operator\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/EQ\"\n                                    },\n                                    \"ids:pipEndpoint\": {\n                                        \"@id\": \"https://w3id.org/idsa/autogen/pipEndpoint/mcdkmcsnrbge\",\n                                        \"@type\": \"ids:PIP\",\n                                        \"ids:endpointURI\": {\n                                            \"@id\": \"https://ids.org/EXAMPLE/realEndpointURI\"\n                                        },\n                                        \"ids:interfaceDescription\": {\n                                            \"@id\": \"https://ids.org/PIP/askIfPurpose\"\n                                        }\n                                    },\n                                    \"ids:rightOperandReference\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/TRUST_SECURITY_PROFILE\"\n                                    }\n                                }\n                            ]\n                        }\n                    ]\n                },\n                \"ids:created\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2003-01-10T00:00:00Z\"\n                },\n                \"ids:customLicense\": {\n                    \"@id\": \"http://customlicense.org\"\n                },\n                \"ids:dataCreator\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                    \"@value\": \"Data creator/Owner\"\n                },\n                \"ids:description\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"Data information for all the components.\"\n                    }\n                ],\n                \"ids:domainVocabulary\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/2d98d466-52ce-48b8-a29e-936f7f4efa9e\",\n                    \"@type\": \"ids:VocabularyData\",\n                    \"ids:vocabulary\": {\n                        \"@id\": \"http://vocabulary.org\"\n                    }\n                },\n                \"ids:keyword\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"data\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"component\"\n                    }\n                ],\n                \"ids:language\": [\n                    {\n                        \"@id\": \"idsc:EN\"\n                    },\n                    {\n                        \"@id\": \"idsc:ES\"\n                    }\n                ],\n                \"ids:mainTitle\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"components\"\n                    }\n                ],\n                \"ids:modified\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2020-01-29T00:00:00+00:00\"\n                },\n                \"ids:paymentModality\": {\n                    \"@id\": \"idsc:FREE\"\n                },\n                \"ids:rawData\": false,\n                \"ids:representation\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/textRepresentation/8a23edb5-be86-4722-afd4-fd2276c9bc18\",\n                        \"@type\": \"ids:TextRepresentation\",\n                        \"ids:created\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2013-11-14T00:00:00+00:00\"\n                        },\n                        \"ids:domainVocabulary\": {\n                            \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/bbe50ee4-5033-4c13-bf43-35c733a7b781\",\n                            \"@type\": \"ids:VocabularyData\",\n                            \"ids:vocabulary\": {\n                                \"@id\": \"http://textVovabulary.com\"\n                            }\n                        },\n                        \"ids:instance\": [\n                            {\n                                \"@id\": \"https://w3id.org/idsa/autogen/artifact/aa1cf3d9-8aa1-42ef-9f85-08ce0f48005b\",\n                                \"@type\": \"ids:Artifact\",\n                                \"ids:byteSize\": 2678,\n                                \"ids:creationDate\": {\n                                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                                    \"@value\": \"2020-06-23T17:27:18.599+02:00\"\n                                },\n                                \"ids:fileName\": \"data.pdf\"\n                            }\n                        ],\n                        \"ids:mediaType\": {\n                            \"@id\": \"idsc:APPLICATION_PDF\",\n                            \"@type\": \"ids:IANAMediaType\"\n                        },\n                        \"ids:modified\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2020-01-15T00:00:00+00:00\"\n                        },\n                        \"ids:representationStandard\": {\n                            \"@id\": \"http://textRepresentation.org\"\n                        }\n                    }\n                ],\n                \"ids:researchDataType\": {\n                    \"@id\": \"idsc:OBSERVATIONAL_DATA\"\n                },\n                \"ids:standardLicense\": {\n                    \"@id\": \"idsc:OTHERFREEWARELICENSE\"\n                },\n                \"ids:title\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON marketplace components\"\n                    }\n                ],\n                \"ids:version\": \"version 3.0.0\"                                \n            }\n        ]\n    },\n    \"ids:securityProfile\": {\n        \"@id\": \"https://w3id.org/idsa/code/BASE_SECURITY_PROFILE\",\n        \"@type\": \"ids:SecurityProfile\",\n        \"ids:securityGuarantee\": {\n            \"@id\": \"https://w3id.org/idsa/code/AUTHENTICATION_MUTUAL\",\n            \"@type\": \"ids:AuthenticationGuarantee\"\n        }\n    },\n    \"ids:title\": [\n        {\n            \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n            \"@value\": \"My Connector\"\n        }\n    ]\n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Connector Update",
+			"request": {
+				"url": {
+					"raw": "https://localhost/infrastructure?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"infrastructure"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ConnectorUpdateMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/connectorUpdateMessage/327b5596-8259-46c1-b3ec-2f7f1f6a1b1e\",\n  \"ids:affectedConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  },\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"https://test.connector.de\"\n  },\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/a73edf66-d5a7-4114-b9ae-577793821384\",\n    \"ids:tokenValue\" : \"...\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"https://w3id.org/idsa/code/JWT\"\n    }\n  },\n  \"ids:modelVersion\" : \"4.1.0\",\n  \"ids:issued\" : {\n    \"@value\" : \"2022-04-13T13:43:08.826Z\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  }\n}",
+							"type": "text"
+						},
+						{
+							"key": "payload",
+							"value": "{\n    \"@context\": {\n        \"ids\": \"https://w3id.org/idsa/core/\",\n        \"idsc\": \"https://w3id.org/idsa/code/\",        \n        \"xsd\": \"http://www.w3.org/2001/XMLSchema#\"\n    },\n    \"@id\": \"https://test.connector.de/myConnector\",\n    \"@type\": \"ids:BaseConnector\",\n    \"ids:curator\": {\n        \"@id\": \"https://test.connector.de/agent/\"\n    },\n    \"ids:description\": [\n        {\n            \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n            \"@value\": \"This is change in the description of the Connector\"\n        }\n    ],\n    \"ids:hasDefaultEndpoint\": {\n        \"@id\": \"https://test.connector.de/data/\",\n        \"@type\": \"ids:ConnectorEndpoint\",\n        \"ids:accessURL\": {\n            \"@id\": \"https://test.connector.de/infrastructure\"\n        },\n        \"ids:endpointDocumentation\": [\n            {\n                \"@id\": \"https://app.swaggerhub.com/apis/idsa/IDS-Broker/1.3.1#/Multipart+Interactions/post_infrastructure\"\n            }\n        ],\n        \"ids:endpointInformation\": [\n            {\n                \"@language\": \"en\",\n                \"@value\": \"This endpoint provides IDS Connector information and IDS Resources.\"\n            }\n        ],\n        \"ids:path\": \"/infrastructure\",\n        \"ids:sovereign\": {\n            \"@id\": \"https://test.connector.de/infrastructure\"\n        }\n    },\n    \"ids:inboundModelVersion\": [\n        \"4.0.0\"\n    ],\n    \"ids:maintainer\": {\n        \"@id\": \"https://test.connector.de/agent/\"\n    },    \n    \"ids:outboundModelVersion\": \"4.0.0\",\n    \"ids:resourceCatalog\": {\n        \"@id\": \"https://w3id.org/idsa/autogen/catalog/fa535e30-8cb0-4ede-b5a9-def764d69357\",\n        \"@type\": \"ids:ResourceCatalog\",\n        \"ids:offeredResource\": [\n            {\n                \"@id\": \"https://test.connector.de/myFirstResource\",\n                \"@type\": \"ids:Resource\",\n                \"ids:author\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/person/8b51a76a-7316-4285-b96a-722bf7a944f8\",\n                        \"@type\": \"ids:Person\",\n                        \"ids:emailAddress\": [\"info@example.org\"],\n                        \"ids:familyName\": \"Schmitz\",\n                        \"ids:givenName\": \"Max\",\n                        \"ids:homepage\": \"http://example.org\",\n                        \"ids:phoneNumber\": [\"012345678891\"]\n                    }\n                ],\n                \"ids:contentStandard\": {\n                    \"@id\": \"http://contentstandard.org\"\n                },\n                \"ids:contentType\": {\n                    \"@id\": \"idsc:INTERFACE_DEFINITION\"\n                },\n                \"ids:contractOffer\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/contractOffer/b6d78c1f-bccb-4615-9a67-bf0ab729428a\",\n                    \"@type\": \"ids:ContractOffer\",\n                    \"ids:permission\": [\n                        {\n                            \"@id\": \"https://w3id.org/idsa/autogen/permission/6949b9d2-11b7-40f0-b935-d5964a0f7a3e\",\n                            \"@type\": \"ids:Permission\",\n                            \"ids:action\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/code/USE\",\n                                    \"@type\": \"ids:Action\"\n                                }\n                            ],\n                            \"ids:assignee\": [\n                                {\n                                    \"@id\": \"http://example.org/assignee\"\n                                }\n                            ],\n                            \"ids:constraint\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/autogen/constraint/4be87aa3-e203-4ac8-b4d6-ea006814d494\",\n                                    \"@type\": \"ids:Constraint\",\n                                    \"ids:leftOperand\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/SECURITY_LEVEL\"\n                                    },\n                                    \"ids:operator\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/EQ\"\n                                    },\n                                    \"ids:pipEndpoint\": {\n                                        \"@id\": \"https://w3id.org/idsa/autogen/pipEndpoint/mcdkmcsnrbge\",\n                                        \"@type\": \"ids:PIP\",\n                                        \"ids:endpointURI\": {\n                                            \"@id\": \"https://ids.org/EXAMPLE/realEndpointURI\"\n                                        },\n                                        \"ids:interfaceDescription\": {\n                                            \"@id\": \"https://ids.org/PIP/askIfPurpose\"\n                                        }\n                                    },\n                                    \"ids:rightOperandReference\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/TRUST_SECURITY_PROFILE\"\n                                    }\n                                }\n                            ]\n                        }\n                    ]\n                },\n                \"ids:created\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2003-01-10T00:00:00Z\"\n                },\n                \"ids:customLicense\": {\n                    \"@id\": \"http://customlicense.org\"\n                },\n                \"ids:dataCreator\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                    \"@value\": \"Data creator/Owner\"\n                },\n                \"ids:description\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"Data information for all the components of PLATOON\"\n                    }\n                ],\n                \"ids:domainVocabulary\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/2d98d466-52ce-48b8-a29e-936f7f4efa9e\",\n                    \"@type\": \"ids:VocabularyData\",\n                    \"ids:vocabulary\": {\n                        \"@id\": \"http://vocabulary.org\"\n                    }\n                },\n                \"ids:keyword\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"data\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"component\"\n                    }\n                ],\n                \"ids:language\": [\n                    {\n                        \"@id\": \"idsc:EN\"\n                    },\n                    {\n                        \"@id\": \"idsc:ES\"\n                    }\n                ],\n                \"ids:mainTitle\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON components\"\n                    }\n                ],\n                \"ids:modified\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2020-01-29T00:00:00+00:00\"\n                },\n                \"ids:paymentModality\": {\n                    \"@id\": \"idsc:FREE\"\n                },\n                \"ids:rawData\": false,\n                \"ids:representation\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/textRepresentation/8a23edb5-be86-4722-afd4-fd2276c9bc18\",\n                        \"@type\": \"ids:TextRepresentation\",\n                        \"ids:created\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2013-11-14T00:00:00+00:00\"\n                        },\n                        \"ids:domainVocabulary\": {\n                            \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/bbe50ee4-5033-4c13-bf43-35c733a7b781\",\n                            \"@type\": \"ids:VocabularyData\",\n                            \"ids:vocabulary\": {\n                                \"@id\": \"http://textVovabulary.com\"\n                            }\n                        },\n                        \"ids:instance\": [\n                            {\n                                \"@id\": \"https://w3id.org/idsa/autogen/artifact/aa1cf3d9-8aa1-42ef-9f85-08ce0f48005b\",\n                                \"@type\": \"ids:Artifact\",\n                                \"ids:byteSize\": 2678,\n                                \"ids:creationDate\": {\n                                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                                    \"@value\": \"2020-06-23T17:27:18.599+02:00\"\n                                },\n                                \"ids:fileName\": \"data.pdf\"\n                            }\n                        ],\n                        \"ids:mediaType\": {\n                            \"@id\": \"idsc:APPLICATION_PDF\",\n                            \"@type\": \"ids:IANAMediaType\"\n                        },\n                        \"ids:modified\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2020-01-15T00:00:00+00:00\"\n                        },\n                        \"ids:representationStandard\": {\n                            \"@id\": \"http://textRepresentation.org\"\n                        }\n                    }\n                ],\n                \"ids:researchDataType\": {\n                    \"@id\": \"idsc:OBSERVATIONAL_DATA\"\n                },\n                \"ids:standardLicense\": {\n                    \"@id\": \"idsc:OTHERFREEWARELICENSE\"\n                },\n                \"ids:title\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON marketplace components\"\n                    }\n                ],\n                \"ids:version\": \"version 3.0.0\"                                \n            }\n        ]\n    },\n    \"ids:securityProfile\": {\n        \"@id\": \"https://w3id.org/idsa/code/BASE_SECURITY_PROFILE\",\n        \"@type\": \"ids:SecurityProfile\",\n        \"ids:securityGuarantee\": {\n            \"@id\": \"https://w3id.org/idsa/code/AUTHENTICATION_MUTUAL\",\n            \"@type\": \"ids:AuthenticationGuarantee\"\n        }\n    },\n    \"ids:title\": [\n        {\n            \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n            \"@value\": \"My Connector\"\n        }\n    ]\n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Resource Update",
+			"request": {
+				"url": {
+					"raw": "https://localhost/infrastructure?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"infrastructure"
+					],
+					"query": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ConnectorUpdateMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/connectorUpdateMessage/6d875403-cfea-4aad-979c-3515c2e71967\",\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/7bbbd2c1-2d75-4e3d-bd10-c52d0381cab0\",\n    \"ids:tokenValue\" : \"{{dat}}\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"idsc:JWT\"\n    }\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"http://example.org\"\n  },\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/\"\n  },\n  \"ids:issued\" : {\n    \"@value\" : \"2021-06-23T17:27:23.566+02:00\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  },\n  \"ids:affectedConnector\" : {\n    \"@id\" : \"https://test.connector.de/\"\n  }\n}",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ResourceUpdateMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/resourceUpdateMessage/74dd75b0-b152-4c74-8273-f65a686c5a9c\",\n  \"ids:securityToken\" : {\n    \"@context\" : {\n      \"ids\" : \"https://w3id.org/idsa/core/\",\n      \"idsc\" : \"https://w3id.org/idsa/code/\"\n    },\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/20abfa8b-6709-4659-b525-bd10f9e592e4\",\n    \"ids:tokenValue\" : \"...\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"idsc:JWT\"\n    }\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"https://test.connector.de\"\n  },\n  \"ids:affectedResource\" : {\n    \"@id\" : \"https://test.connector.de/myFirstResource\"\n  },\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:issued\" : {\n    \"@value\" : \"2021-03-10T18:09:43.693+01:00\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  },\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  }\n}",
+							"type": "text"
+						},
+						{
+							"key": "payload",
+							"value": "{\n    \"@context\" : {\n        \"ids\" : \"https://w3id.org/idsa/core/\",\n        \"idsc\" : \"https://w3id.org/idsa/code/\"\n    },\n    \"@type\" : \"ids:Resource\",\n    \"@id\" : \"https://test.connector.de/myFirstResource\",\n    \"ids:author\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/person/8b51a76a-7316-4285-b96a-722bf7a944f8\",\n                        \"@type\": \"ids:Person\",\n                        \"ids:emailAddress\": [\"info@example.org\"],\n                        \"ids:familyName\": \"Schmitzs\",\n                        \"ids:givenName\": \"Max\",\n                        \"ids:homepage\": \"http://example.org\",\n                        \"ids:phoneNumber\": [\"012345678891\"]\n                    }\n                ],\n                \"ids:contentStandard\": {\n                    \"@id\": \"http://contentstandard.org\"\n                },\n                \"ids:contentType\": {\n                    \"@id\": \"idsc:INTERFACE_DEFINITION\"\n                },\n                \"ids:contractOffer\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/contractOffer/b6d78c1f-bccb-4615-9a67-bf0ab729428a\",\n                    \"@type\": \"ids:ContractOffer\",\n                    \"ids:permission\": [\n                        {\n                            \"@type\": \"ids:Permission\",\n                            \"ids:action\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/code/USE\",\n                                    \"@type\": \"ids:Action\"\n                                }\n                            ],\n                            \"ids:assignee\": [\n                                {\n                                    \"@id\": \"http://example.org/assignee\"\n                                }\n                            ],\n                            \"ids:constraint\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/autogen/constraint/4be87aa3-e203-4ac8-b4d6-ea006814d494\",\n                                    \"@type\": \"ids:Constraint\",\n                                    \"ids:leftOperand\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/SECURITY_LEVEL\"\n                                    },\n                                    \"ids:operator\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/EQ\"\n                                    },\n                                    \"ids:pipEndpoint\": {\n                                        \"@id\": \"https://w3id.org/idsa/autogen/pipEndpoint/mcdkmcsnrbge\",\n                                        \"@type\": \"ids:PIP\",\n                                        \"ids:endpointURI\": {\n                                            \"@id\": \"https://ids.org/EXAMPLE/realEndpointURI\"\n                                        },\n                                        \"ids:interfaceDescription\": {\n                                            \"@id\": \"https://ids.org/PIP/askIfPurpose\"\n                                        }\n                                    },\n                                    \"ids:rightOperandReference\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/TRUST_SECURITY_PROFILE\"\n                                    }\n                                }\n                            ]\n                        }\n                    ]\n                },\n                \"ids:created\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2003-01-10T00:00:00Z\"\n                },\n                \"ids:customLicense\": {\n                    \"@id\": \"http://customlicense.org\"\n                },\n                \"ids:dataCreator\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                    \"@value\": \"Data creator/Owner\"\n                },\n                \"ids:description\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"Data information for all the components.\"\n                    }\n                ],\n                \"ids:domainVocabulary\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/2d98d466-52ce-48b8-a29e-936f7f4efa9e\",\n                    \"@type\": \"ids:VocabularyData\",\n                    \"ids:vocabulary\": {\n                        \"@id\": \"http://vocabulary.org\"\n                    }\n                },\n                \"ids:keyword\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"data\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"component\"\n                    }\n                ],\n                \"ids:language\": [\n                    {\n                        \"@id\": \"idsc:EN\"\n                    },\n                    {\n                        \"@id\": \"idsc:ES\"\n                    }\n                ],\n                \"ids:mainTitle\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON components\"\n                    }\n                ],\n                \"ids:modified\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2020-01-29T00:00:00+00:00\"\n                },\n                \"ids:paymentModality\": {\n                    \"@id\": \"idsc:FREE\"\n                },\n                \"ids:rawData\": false,\n                \"ids:representation\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/textRepresentation/8a23edb5-be86-4722-afd4-fd2276c9bc18\",\n                        \"@type\": \"ids:TextRepresentation\",\n                        \"ids:created\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2013-11-14T00:00:00+00:00\"\n                        },\n                        \"ids:domainVocabulary\": {\n                            \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/bbe50ee4-5033-4c13-bf43-35c733a7b781\",\n                            \"@type\": \"ids:VocabularyData\",\n                            \"ids:vocabulary\": {\n                                \"@id\": \"http://textVovabulary.com\"\n                            }\n                        },\n                        \"ids:instance\": [\n                            {\n                                \"@id\": \"https://w3id.org/idsa/autogen/artifact/aa1cf3d9-8aa1-42ef-9f85-08ce0f48005b\",\n                                \"@type\": \"ids:Artifact\",\n                                \"ids:byteSize\": 2678,\n                                \"ids:creationDate\": {\n                                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                                    \"@value\": \"2020-06-23T17:27:18.599+02:00\"\n                                },\n                                \"ids:fileName\": \"data.pdf\"\n                            }\n                        ],\n                        \"ids:mediaType\": {\n                            \"@id\": \"idsc:APPLICATION_PDF\",\n                            \"@type\": \"ids:IANAMediaType\"\n                        },\n                        \"ids:modified\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2020-01-15T00:00:00+00:00\"\n                        },\n                        \"ids:representationStandard\": {\n                            \"@id\": \"http://textRepresentation.org\"\n                        }\n                    }\n                ],\n                \"ids:researchDataType\": {\n                    \"@id\": \"idsc:OBSERVATIONAL_DATA\"\n                },\n                \"ids:standardLicense\": {\n                    \"@id\": \"idsc:OTHERFREEWARELICENSE\"\n                },\n                \"ids:title\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON Marketplace Components\"\n                    }\n                ],\n                \"ids:version\": \"version 3.0.0\"     \n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Resource Registration",
+			"request": {
+				"url": {
+					"raw": "https://localhost/infrastructure?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"infrastructure"
+					],
+					"query": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ConnectorUpdateMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/connectorUpdateMessage/6d875403-cfea-4aad-979c-3515c2e71967\",\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/7bbbd2c1-2d75-4e3d-bd10-c52d0381cab0\",\n    \"ids:tokenValue\" : \"{{dat}}\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"idsc:JWT\"\n    }\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"http://example.org\"\n  },\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/\"\n  },\n  \"ids:issued\" : {\n    \"@value\" : \"2021-06-23T17:27:23.566+02:00\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  },\n  \"ids:affectedConnector\" : {\n    \"@id\" : \"https://test.connector.de/\"\n  }\n}",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ResourceUpdateMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/resourceUpdateMessage/74dd75b0-b152-4c74-8273-f65a686c5a9c\",\n  \"ids:securityToken\" : {\n    \"@context\" : {\n      \"ids\" : \"https://w3id.org/idsa/core/\",\n      \"idsc\" : \"https://w3id.org/idsa/code/\"\n    },\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/20abfa8b-6709-4659-b525-bd10f9e592e4\",\n    \"ids:tokenValue\" : \"...\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"idsc:JWT\"\n    }\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"https://test.connector.de\"\n  },\n  \"ids:affectedResource\" : {\n    \"@id\" : \"https://test.connector.de/mySecondResource\"\n  },\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:issued\" : {\n    \"@value\" : \"2021-03-10T18:09:43.693+01:00\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  },\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  }\n}",
+							"type": "text"
+						},
+						{
+							"key": "payload",
+							"value": "{\n    \"@context\" : {\n        \"ids\" : \"https://w3id.org/idsa/core/\",\n        \"idsc\" : \"https://w3id.org/idsa/code/\"\n    },\n    \"@type\" : \"ids:Resource\",\n    \"@id\" : \"https://test.connector.de/mySecondResource\",\n    \"ids:author\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/person/8b51a76a-7316-4285-b96a-722bf7a944f8\",\n                        \"@type\": \"ids:Person\",\n                        \"ids:emailAddress\": [\"info@example.org\"],\n                        \"ids:familyName\": \"Schmitzs\",\n                        \"ids:givenName\": \"Max\",\n                        \"ids:homepage\": \"http://example.org\",\n                        \"ids:phoneNumber\": [\"012345678891\"]\n                    }\n                ],\n                \"ids:contentStandard\": {\n                    \"@id\": \"http://contentstandard.org\"\n                },\n                \"ids:contentType\": {\n                    \"@id\": \"idsc:INTERFACE_DEFINITION\"\n                },\n                \"ids:contractOffer\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/contractOffer/b6d78c1f-bccb-4615-9a67-bf0ab729428a\",\n                    \"@type\": \"ids:ContractOffer\",\n                    \"ids:permission\": [\n                        {\n                            \"@type\": \"ids:Permission\",\n                            \"ids:action\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/code/USE\",\n                                    \"@type\": \"ids:Action\"\n                                }\n                            ],\n                            \"ids:assignee\": [\n                                {\n                                    \"@id\": \"http://example.org/assignee\"\n                                }\n                            ],\n                            \"ids:constraint\": [\n                                {\n                                    \"@id\": \"https://w3id.org/idsa/autogen/constraint/4be87aa3-e203-4ac8-b4d6-ea006814d494\",\n                                    \"@type\": \"ids:Constraint\",\n                                    \"ids:leftOperand\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/SECURITY_LEVEL\"\n                                    },\n                                    \"ids:operator\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/EQ\"\n                                    },\n                                    \"ids:pipEndpoint\": {\n                                        \"@id\": \"https://w3id.org/idsa/autogen/pipEndpoint/mcdkmcsnrbge\",\n                                        \"@type\": \"ids:PIP\",\n                                        \"ids:endpointURI\": {\n                                            \"@id\": \"https://ids.org/EXAMPLE/realEndpointURI\"\n                                        },\n                                        \"ids:interfaceDescription\": {\n                                            \"@id\": \"https://ids.org/PIP/askIfPurpose\"\n                                        }\n                                    },\n                                    \"ids:rightOperandReference\": {\n                                        \"@id\": \"https://w3id.org/idsa/code/TRUST_SECURITY_PROFILE\"\n                                    }\n                                }\n                            ]\n                        }\n                    ]\n                },\n                \"ids:created\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2003-01-10T00:00:00Z\"\n                },\n                \"ids:customLicense\": {\n                    \"@id\": \"http://customlicense.org\"\n                },\n                \"ids:dataCreator\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                    \"@value\": \"Data creator/Owner\"\n                },\n                \"ids:description\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"Data information for all the components of PLATOON, for example: TRUE Connector, Metadata Registry, Vocabulary Provider, Clearing House.\"\n                    }\n                ],\n                \"ids:domainVocabulary\": {\n                    \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/2d98d466-52ce-48b8-a29e-936f7f4efa9e\",\n                    \"@type\": \"ids:VocabularyData\",\n                    \"ids:vocabulary\": {\n                        \"@id\": \"http://vocabulary.org\"\n                    }\n                },\n                \"ids:keyword\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"data\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON\"\n                    },\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"component\"\n                    }\n                ],\n                \"ids:language\": [\n                    {\n                        \"@id\": \"idsc:EN\"\n                    },\n                    {\n                        \"@id\": \"idsc:ES\"\n                    }\n                ],\n                \"ids:mainTitle\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON components\"\n                    }\n                ],\n                \"ids:modified\": {\n                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                    \"@value\": \"2020-01-29T00:00:00+00:00\"\n                },\n                \"ids:paymentModality\": {\n                    \"@id\": \"idsc:FREE\"\n                },\n                \"ids:rawData\": false,\n                \"ids:representation\": [\n                    {\n                        \"@id\": \"https://w3id.org/idsa/autogen/textRepresentation/8a23edb5-be86-4722-afd4-fd2276c9bc18\",\n                        \"@type\": \"ids:TextRepresentation\",\n                        \"ids:created\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2013-11-14T00:00:00+00:00\"\n                        },\n                        \"ids:domainVocabulary\": {\n                            \"@id\": \"https://w3id.org/idsa/autogen/vocabularyData/bbe50ee4-5033-4c13-bf43-35c733a7b781\",\n                            \"@type\": \"ids:VocabularyData\",\n                            \"ids:vocabulary\": {\n                                \"@id\": \"http://textVovabulary.com\"\n                            }\n                        },\n                        \"ids:instance\": [\n                            {\n                                \"@id\": \"https://w3id.org/idsa/autogen/artifact/aa1cf3d9-8aa1-42ef-9f85-08ce0f48005b\",\n                                \"@type\": \"ids:Artifact\",\n                                \"ids:byteSize\": 2678,\n                                \"ids:creationDate\": {\n                                    \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                                    \"@value\": \"2020-06-23T17:27:18.599+02:00\"\n                                },\n                                \"ids:fileName\": \"data.pdf\"\n                            }\n                        ],\n                        \"ids:mediaType\": {\n                            \"@id\": \"idsc:APPLICATION_PDF\",\n                            \"@type\": \"ids:IANAMediaType\"\n                        },\n                        \"ids:modified\": {\n                            \"@type\": \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\",\n                            \"@value\": \"2020-01-15T00:00:00+00:00\"\n                        },\n                        \"ids:representationStandard\": {\n                            \"@id\": \"http://textRepresentation.org\"\n                        }\n                    }\n                ],\n                \"ids:researchDataType\": {\n                    \"@id\": \"idsc:OBSERVATIONAL_DATA\"\n                },\n                \"ids:standardLicense\": {\n                    \"@id\": \"idsc:OTHERFREEWARELICENSE\"\n                },\n                \"ids:title\": [\n                    {\n                        \"@type\": \"http://www.w3.org/2001/XMLSchema#string\",\n                        \"@value\": \"PLATOON Marketplace Components\"\n                    }\n                ],\n                \"ids:version\": \"version 3.0.0\"     \n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Resource Delete",
+			"request": {
+				"url": "https://localhost/infrastructure",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ResourceUnavailableMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/ResourceUnavailableMessage/74dd75b0-b152-4c74-8273-f65a686c5a9a\",\n  \"ids:securityToken\" : {\n    \"@context\" : {\n      \"ids\" : \"https://w3id.org/idsa/core/\",\n      \"idsc\" : \"https://w3id.org/idsa/code/\"\n    },\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/20abfa8b-6709-4659-b525-bd10f9e592e4\",\n    \"ids:tokenValue\" : \"...\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"idsc:JWT\"\n    }\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"https://test.connector.de\"\n  },\n  \"ids:affectedResource\" : {\n    \"@id\" : \"https://test.connector.de/mySecondResource\"\n  },\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:issued\" : {\n    \"@value\" : \"2021-03-10T18:09:43.693+01:00\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  },\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  }\n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Connector Unregister",
+			"request": {
+				"url": "https://localhost/infrastructure",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\"\n  },\n  \"@type\" : \"ids:ConnectorUnavailableMessage\",\n  \"@id\" : \"https://w3id.org/idsa/autogen/connectorUpdateMessage/327b5596-8259-46c1-b3ec-2f7f1f6a1b1e\",\n  \"ids:affectedConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  },\n  \"ids:issuerConnector\" : {\n    \"@id\" : \"https://test.connector.de/myConnector\"\n  },\n  \"ids:senderAgent\" : {\n    \"@id\" : \"https://test.connector.de\"\n  },\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/a73edf66-d5a7-4114-b9ae-577793821384\",\n    \"ids:tokenValue\" : \"...\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"https://w3id.org/idsa/code/JWT\"\n    }\n  },\n  \"ids:modelVersion\" : \"4.1.0\",\n  \"ids:issued\" : {\n    \"@value\" : \"2022-04-13T13:43:08.826Z\",\n    \"@type\" : \"http://www.w3.org/2001/XMLSchema#dateTimeStamp\"\n  }\n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Query",
+			"request": {
+				"url": "https://localhost/infrastructure",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/mixed; boundary=msgpart",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "header",
+							"value": "{\n  \"@context\" : {\n    \"ids\" : \"https://w3id.org/idsa/core/\",\n    \"idsc\" : \"https://w3id.org/idsa/code/\",\n    \"xsd\":\"http://www.w3.org/2001/XMLSchema#\"\n  },\n  \"@type\" : \"ids:QueryMessage\",\n  \"@id\" : \"http://industrialdataspace.org/1a421b8c-3407-44a8-aeb9-253f145c869a\",\n  \"ids:issued\" : {\"@value\":\"2021-05-25T15:35:34.589Z\",\"@type\":\"xsd:dateTimeStamp\"},\n  \"ids:modelVersion\" : \"4.0.0\",\n  \"ids:senderAgent\":{\"@id\":\"https://localhost/agent\"},\n  \"ids:issuerConnector\":{\"@id\":\"https://localhost/59a68243\"},\n  \"ids:securityToken\" : {\n    \"@type\" : \"ids:DynamicAttributeToken\",\n    \"@id\" : \"https://w3id.org/idsa/autogen/dynamicAttributeToken/2bd53efc-5995-d75590476820\",\n    \"ids:tokenFormat\" : {\n      \"@id\" : \"https://w3id.org/idsa/code/JWT\"\n    },\n    \"ids:tokenValue\" : \"{{dat}}\"\n  },\n  \"ids:queryLanguage\" : {\n    \"@id\" : \"idsc:SPARQL\"\n  },\n  \"ids:queryScope\" : {\n    \"@id\" : \"idsc:ALL\"\n  }\n}",
+							"type": "text"
+						},
+						{
+							"key": "payload",
+							"value": "SELECT ?subject ?predicate ?object\nWHERE {\n    ?subject ?predicate ?object  \n}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

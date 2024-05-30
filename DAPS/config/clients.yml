@@ -1,0 +1,55 @@
+---
+- client_id: E2:C4:24:73:A1:0A:B1:20:E6:EE:77:5B:CB:24:98:7E:39:74:25:49:keyid:41:30:3C:7E:87:C2:EF:66:72:27:91:82:EF:56:E9:0C:5C:2B:BC:2B
+  client_name: testbed1
+  grant_types: client_credentials
+  token_endpoint_auth_method: private_key_jwt
+  scope: idsc:IDS_CONNECTOR_ATTRIBUTES_ALL
+  attributes:
+  - key: idsc
+    value: IDS_CONNECTOR_ATTRIBUTES_ALL
+  - key: securityProfile
+    value: idsc:BASE_SECURITY_PROFILE
+  - key: referringConnector
+    value: http://testbed1.demo
+  - key: "@type"
+    value: ids:DatPayload
+  - key: "@context"
+    value: https://w3id.org/idsa/contexts/context.jsonld
+  - key: transportCertsSha256
+    value: a82df8ba258599522a4d7516ecca09d76494ee568fc3b84ec59c32d2fc2179dc
+- client_id: F0:29:3D:CE:68:FA:07:14:FA:DF:47:C1:3C:E2:37:63:FC:95:A1:0D:keyid:41:30:3C:7E:87:C2:EF:66:72:27:91:82:EF:56:E9:0C:5C:2B:BC:2B
+  client_name: testbed2
+  grant_types: client_credentials
+  token_endpoint_auth_method: private_key_jwt
+  scope: idsc:IDS_CONNECTOR_ATTRIBUTES_ALL
+  attributes:
+  - key: idsc
+    value: IDS_CONNECTOR_ATTRIBUTES_ALL
+  - key: securityProfile
+    value: idsc:BASE_SECURITY_PROFILE
+  - key: referringConnector
+    value: http://testbed2.demo
+  - key: "@type"
+    value: ids:DatPayload
+  - key: "@context"
+    value: https://w3id.org/idsa/contexts/context.jsonld
+  - key: transportCertsSha256
+    value: 5cefdb731f0764b8d48a72dec4d28aabef0d8d7e0d92bc4598d2ac028f786eef
+- client_id: 07:69:AC:6A:83:BE:38:C2:B6:CA:80:A8:70:5A:97:EB:7C:AA:81:B2:keyid:41:30:3C:7E:87:C2:EF:66:72:27:91:82:EF:56:E9:0C:5C:2B:BC:2B
+  client_name: testbed3
+  grant_types: client_credentials
+  token_endpoint_auth_method: private_key_jwt
+  scope: idsc:IDS_CONNECTOR_ATTRIBUTES_ALL
+  attributes:
+  - key: idsc
+    value: IDS_CONNECTOR_ATTRIBUTES_ALL
+  - key: securityProfile
+    value: idsc:BASE_SECURITY_PROFILE
+  - key: referringConnector
+    value: http://testbed3.demo
+  - key: "@type"
+    value: ids:DatPayload
+  - key: "@context"
+    value: https://w3id.org/idsa/contexts/context.jsonld
+  - key: transportCertsSha256
+    value: 58718395a04a600099a819b867b73ff9ae7a87266cd38be17aea741d58a45a8f
