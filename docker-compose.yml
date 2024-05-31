@@ -384,6 +384,21 @@ services:
       - tc-consumer
       - local
 
+  model-receiver:
+    image: tharindupr/cords-docker-images:model_receiver
+    container_name: cords-model-receiver
+    ports:
+      - "8765:8765"  # Expose port 8765
+    volumes:
+      - ./downloads:/app/downloads  # Mount the downloads directory as a volume
+      - ./logs:/app/logs # Mount the logs directory as a volume
+    environment:  
+      - LOG_FILE=/logs/server.log # Path to log file inside the container
+    networks:
+      - tc-provider
+      - tc-consumer
+      - local
+
       
 networks:
   tc-consumer: {}
