@@ -4,7 +4,7 @@ CORDS MVE has several components. These components can be downloaded as docker i
 
 * [True Connector Components](https://github.com/Engineering-Research-and-Development/true-connectorr), open-source IDSA Connector designed by ENG. It is leveraged in CORDS MVE for ensuring IDSA complaint artifact exchange. It consist of several services including Execution Core Container (ECC) and Usage-Control (UC) Data Application.
 
-* [CORDS Back End Data App](https://github.com/nimbus-gateway/cords-data-app), A modified version of the ENG Basic Data App to taylor the requirments of CORDS. It act as the midleware between the CORDS local and global digital threads.
+* [CORDS Back End Data App](https://github.com/nimbus-gateway/cords-data-app), A modified version of the ENG Basic Data App to taylor to address the requirments of CORDS. It act as the midleware between the CORDS local and global digital threads.
 
 * [Meta Data Broker](https://github.com/International-Data-Spaces-Association/metadata-broker-open-core), Implementation of an IDS Metadata Broker, which is a registry for IDS Connector self-description documents. It is currenly under development by the IDSA community. 
 
@@ -19,6 +19,7 @@ CORDS MVE has several components. These components can be downloaded as docker i
 ## Index
 - [Hardware Requirements](https://github.com/nimbus-gateway/cords-mve/blob/master/README.md#hardware-requirements)
 - [Runing Precondifured MVE](https://github.com/nimbus-gateway/cords-mve/blob/master/README.md#running-preconfigured-mve)
+- [Exploring CORDS MVE](https://github.com/nimbus-gateway/cords-mve/blob/master/README.md#exploring-cords-mve)
 <!-- - [Certificate Authority](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#certificate-authority)
 - [DAPS](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#daps)
 - [TRUE Connector](https://github.com/Engineering-Research-and-Development/true-connector-mvds/blob/master/README.md#true-connector)
@@ -52,6 +53,48 @@ To see the log lines:
 ```
 docker-compose logs -f
 ```
+
+# Exploring CORDS MVE
+
+## ML Flow 
+ML Flow UI can be access from you browser [http://localhost:4000/](http://localhost:4000/). This can be used to track your assets in ML experiments. [CORDS semantic library](https://github.com/nimbus-gateway/cords-semantics-lib) can be utilized to describe your ML assets using the CORDS ontology. This will ensure the semantic interoprability of ML assets that you will share on the data space. An example for connecting into the MLFLow and using semantic lib is given below. 
+
+
+```
+#for setting up mlflow local server
+mlflow.set_tracking_uri('http://localhost:4000')
+
+mlflow.set_experiment("energy-prediction-regression-problem")
+
+#Importing CORDS Tags
+import cords_semantics.tags as cords_tags
+
+
+
+with mlflow.start_run(run_name = run_name) as mlflow_run:
+    mlflow_run_id = mlflow_run.info.run_id
+    
+    mlflow.set_experiment_tag("second best_model", "K-NeighborsRegressor")
+    mlflow.set_tag("tag2", "K-NeighborsRegressor")
+    mlflow.set_tag(cords_tags.CORDS_RUN, mlflow_run_id)
+    mlflow.set_tag(cords_tags.CORDS_RUN_EXECUTES, "K-NeighborsRegressor")
+    mlflow.set_tag(cords_tags.CORDS_IMPLEMENTATION, "python")
+    mlflow.set_tag(cords_tags.CORDS_SOFTWARE, "sklearn")
+    
+    mlflow.sklearn.log_model(models['K-Neighbors Regressor'], "knnmodel")
+        
+    mlflow.log_metric("test_RMSE", rmse_scores.loc[rmse_scores['Model Name'] == 'K-Neighbors Regressor', 'RMSE_Score'].values[0])
+    mlflow.log_metric("test_MAE", mae_scores.loc[mae_scores['Model Name'] == 'K-Neighbors Regressor', 'MAE_Score'].values[0])
+    mlflow.log_metric("test_R2_Score", r2_scores.loc[r2_scores['Model Name'] == 'K-Neighbors Regressor', 'R2_Score'].values[0])   
+    
+    mlflow.log_input(dataset, context="training")
+    
+    
+    print("MLFlow Run ID: ", mlflow_run_id)
+
+```
+
+
 
 <!-- 
 Follow this set up of the TRUEConnector-MVDS to configure it to your needs.
