@@ -98,7 +98,7 @@ with mlflow.start_run(run_name = run_name) as mlflow_run:
 This API allows the user to prepare the assets to be shared on the Data Space using IDS connectors. It has a feature to extract metadata from MLFlow and convert to a IDS compatible resource description. Finally, when the contract negotation is done ML asset trasfer can be initiated from the API. Once this service is started the API documentation can be accessed from [http://localhost:5000/docs](http://localhost:5000/docs). Use the Resource Manager [Postman Collection](https://github.com/nimbus-gateway/cords-mve/blob/main/CORDS_Resource_Manager_postman_collection.json) to interact with the API.
 
 
-### 1. Registering a new user for managing ML assets at the consumer end.
+### 1. Registering a new user for managing ML assets at the provider end.
 
 ```
 curl -X POST http://localhost:5000/api/users/register \

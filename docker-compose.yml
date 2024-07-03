@@ -190,7 +190,7 @@ services:
       - ./TRUEConnector/uc-dataapp-pip_resources_provider:/etc
 
   be-dataapp-provider:
-    image: cords_provider_app
+    image: tharindupr/cords-docker-images:cords_provider_app
     deploy:
       resources:
         limits:
