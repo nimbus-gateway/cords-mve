@@ -374,11 +374,14 @@ services:
     networks:
       - local
 
+
   cords-resource-manager:
     image: tharindupr/cords-docker-images:resource_manager
     container_name: cords-resource-manager
     ports:
       - "5000:5000"
+    volumes:
+      - ./CORDS_Resource_Manager/policies:/app/policies
     networks:
       - tc-provider
       - tc-consumer

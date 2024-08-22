@@ -1,0 +1,12 @@
+#querying by predicate and object
+
+
+SELECT DISTINCT ?graph ?subject
+WHERE {
+  GRAPH ?graph {
+    ?subject <http://www.w3.org/ns/mlsexecutes> "K-Neighbors Regressor"
+  }
+}
+
+
+SELECT DISTINCT ?graph ?subject WHERE {  GRAPH ?graph { ?subject <http://www.w3.org/ns/mlsexecutes> "K-Neighbors Regressor" }}
