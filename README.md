@@ -14,7 +14,7 @@ CORDS MVE has several components. These components can be downloaded as docker i
 
 
 
-![MVE](pictures/cords_mve.png "MVE")
+![MVE](pictures/minimum_viable_ecosystem.png "MVE")
 
 ## Index
 - [Hardware Requirements](https://github.com/nimbus-gateway/cords-mve/blob/master/README.md#hardware-requirements)
