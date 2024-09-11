@@ -381,7 +381,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./CORDS_Resource_Manager/policies:/app/policies
+      - ./CORDS_Resource_Manager/policies/:/app/policies
     networks:
       - tc-provider
       - tc-consumer
