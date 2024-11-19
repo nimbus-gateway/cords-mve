@@ -1,6 +1,6 @@
 # CORDS Minimum Viable Data Space
 
-CORDS MVDS has several components. These components can be downloaded as docker images to the deployment. 
+CORDS MVDS has several components. These components can be downloaded as docker images for the deployment. 
 
 * [True Connector Components](https://github.com/Engineering-Research-and-Development/true-connector), open-source IDSA Connector designed by ENG. It is leveraged in CORDS MVE for ensuring IDSA complaint artifact exchange. It consist of several services including Execution Core Container (ECC) and Usage-Control (UC) Data Application.
 
@@ -8,7 +8,9 @@ CORDS MVDS has several components. These components can be downloaded as docker 
 
 * [Meta Data Broker](https://github.com/International-Data-Spaces-Association/metadata-broker-open-core), Implementation of an IDS Metadata Broker, which is a registry for IDS Connector self-description documents. It is currenly under development by the IDSA community. 
 
-* [CORDS Resource Manager](https://github.com/nimbus-gateway/cords-resource-manager), It is an API provided to manage artifiact from the ML Flow and genearate their semantic descriptions. Furthermore it can be used to push artifacts into the IDS connector ecosystem. 
+* [CORDS Resource Manager](https://github.com/nimbus-gateway/cords-resource-manager), It is an API provided to manage artifiact from the ML Flow and genearate their semantic descriptions. Furthermore it can be used to push artifacts into the IDS connector ecosystem.
+
+* [ML Semantic Library](https://github.com/nimbus-gateway/cords-semantics-lib), Cords-Semantics is a Python library designed for tagging the artefacts of MLflow runs and generating IDSA-compatible semantic descriptions for artefacts using the ontology provided by CORDS. 
 
 * [MLFlow](https://github.com/mlflow/mlflow), Open source platform for the machine learning lifecycle. It can be used to manage the ML workflows and manage the artifacts geneated from every training rounds.  
 
