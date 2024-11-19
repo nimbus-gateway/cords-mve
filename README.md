@@ -2,7 +2,7 @@
 
 CORDS MVDS has several components. These components can be downloaded as docker images to the deployment. 
 
-* [True Connector Components](https://github.com/Engineering-Research-and-Development/true-connectorr), open-source IDSA Connector designed by ENG. It is leveraged in CORDS MVE for ensuring IDSA complaint artifact exchange. It consist of several services including Execution Core Container (ECC) and Usage-Control (UC) Data Application.
+* [True Connector Components](https://github.com/Engineering-Research-and-Development/true-connector), open-source IDSA Connector designed by ENG. It is leveraged in CORDS MVE for ensuring IDSA complaint artifact exchange. It consist of several services including Execution Core Container (ECC) and Usage-Control (UC) Data Application.
 
 * [CORDS Back End Data App](https://github.com/nimbus-gateway/cords-data-app), A modified version of the ENG Basic Data App to taylor to address the requirments of CORDS. It act as the midleware between the CORDS local and global digital threads.
 
